@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% if  data5 == 0 %}
+    <style>
+        div
+        {
+        text-align: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>All-In-One-Store-API</title>
+</head>
+<body>
+
+<form action="{{ url_for('posttextarea') }}" method="post">
+    <div>
+    <textarea placeholder="Please enter your JSON data here . ." rows="10" cols="100" name="text" maxlength="500"></textarea>
+        <br>
+        <br>
+    <input type="submit" name="submitbutton" value="Generate Invoice">
+    </div>
+
+</form>
+</body>
+</html>
+{% else %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+        div
+        {
+        text-align: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>All-In-One-Store-API</title>
+</head>
+<body>
+<form action="{{ url_for('posttextarea') }}" method="post">
+    <div>
+    <textarea placeholder="Please enter your JSON data here . ." rows="10" cols="100" name="text" maxlength="500"></textarea>
+        <br>
+        <br>
+    <input type="submit" name="submitbutton" value="Generate Invoice">
+    </div>
+
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table border="1" align="center">
+    <tr>
+        <th colspan="10">INVOICE</th>
+    </tr>
+    <tr>
+        <th colspan="7" align="left">Order Date:</th>
+        <th colspan="3" align="right">{{ content }}</th>
+    </tr>
+    <tr>
+        <th colspan="7" align="left">Order Time:</th>
+        <th colspan="3" align="right">{{ content2 }}</th>
+    </tr>
+
+    <tr>
+        <th colspan="2">Item/Description</th>
+        <th colspan="2">Price/Unit</th>
+        <th colspan="2">Quantity</th>
+        <th colspan="2">Tax(%)</th>
+        <th colspan="2">Total</th>
+    </tr>
+    {% for i in range(data|length) %}
+    <tr>
+        <td colspan="2">{% print data[i]['item'] %}</td>
+        <td colspan="2">{% print data[i]['price'] %}</td>
+        <td colspan="2">{% print data[i]['quantity'] %}</td>
+        <td colspan="2">{% print data[i]['tax'] %}</td>
+        <td colspan="2">{% print data[i]['total_price'] %}</td>
+    </tr>
+    {% endfor %}
+        <tr>
+        <th colspan="8.5" align="left">Gross total</th>
+        <th align="right">{{ data3 }}</th>
+    </tr>
+    <tr>
+        <th colspan="8.5" align="left">Total tax(%)</th>
+        <th align="right">{{ content3 }}</th>
+    </tr>
+    <tr>
+        <th colspan="8.5" align="left">Total amount payable</th>
+        <th align="right">INR {{ data2 }}</th>
+    </tr>
+</table>
+{% endif %}
+</body>
+</html>
