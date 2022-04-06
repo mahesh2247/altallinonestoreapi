@@ -1,6 +1,7 @@
 # altallinonestoreapi
 
 This API is designed as an alternative to the allinonestoreapi: https://github.com/mahesh2247/allinonestoreapi/
+
 It combines a simple UI which consists of a textarea to accept valid JSON input and process invoice all in the same page.
 
 The API computational logic for the input is as follows :
