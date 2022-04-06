@@ -19,3 +19,5 @@ The API computational logic for the input is as follows :
  - The bill is sorted in the ascending order of the commodity names.
 
 The API can be run directly from heroku cloud from the deployments menu in right hand corner of the github repo or here: https://altallinonestoreapi.herokuapp.com/
+
+This API was created as a sample project for a sample use case as part of Interview Assessment.
